@@ -48,7 +48,7 @@ request = requests.Request('POST', HOOKURL, headers=HEADERS, json=DATA)
 prepped = request.prepare()
 
 sig = hmac.new(secret, prepped.body, hashlib.sha1)
-prepped.headers['X-Hub-Signature'] = "sha1=%s" % sig.hexdigest()
+prepped.headers['X-Hub-Signature'] = f"sha1={sig.hexdigest()}"
 
 with requests.Session() as session:
     r = session.send(prepped)

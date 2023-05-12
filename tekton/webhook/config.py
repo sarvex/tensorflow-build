@@ -15,6 +15,6 @@ ALLOWED_REPOS = [
 ]
 
 # Gunicorn config
-bind = ":" + str(PORT)
+bind = f":{PORT}"
 workers = multiprocessing.cpu_count() * 2 + 1
 threads = multiprocessing.cpu_count() * 2
